@@ -218,9 +218,9 @@ class ImageLibFourier:
         pgmResult = kernelFourier*pgmDataFourier
         pgmResult = np.abs(np.fft.ifft2(pgmResult))
         pgmResult = np.abs(np.round(self.moveAxispgmDataBeforeFourier(pgmResult,pgmSize),0).astype(int))
-        print pgmResult
+        #print pgmResult
         self.buildPGMFile(str(inputFileName)+"ConFre"+str(kernelName),pgmSize[0],pgmSize[1],pgmGreyscale,pgmResult)
-        print kernel.shape
+        #print kernel.shape
 
     def idealLowPassFilter(self,filename,cutoff):
         pgmVer,pgmComment,pgmSize,pgmGreyscale,pgmData,htg = self.readPGMImage(str(filename)+".pgm")
@@ -259,7 +259,7 @@ class ImageLibFourier:
         pgmResult = np.abs(np.fft.ifft2(pgmResult))
         pgmResult = self.moveAxispgmDataBeforeFourier(pgmResult,pgmSize)
         pgmResult = np.abs(np.round(pgmResult,0).astype(int))
-        self.buildPGMFile(str(filename)+"ButterWorthLowPassFilter"+str(cutoff),pgmSize[0],pgmSize[1],pgmGreyscale,pgmResult)
+        self.buildPGMFile(str(filename)+"ButterWorthLowPassFilter"+str(cutoff)+"Order"+str(order),pgmSize[0],pgmSize[1],pgmGreyscale,pgmResult)
 
     def GaussianLowPassFilter(self,filename,cutoff):
         pgmVer,pgmComment,pgmSize,pgmGreyscale,pgmData,htg = self.readPGMImage(str(filename)+".pgm")
@@ -284,39 +284,65 @@ class ImageLibFourier:
         kernel = (1.0/9.0)*kernel #median filter kernel
         self.convolutionWithKernel(filename,"MedianFilter",kernel,1)
 
+    def rootMeanSquare(self,originalFileName,afterFileName):
+        pgmVerOri,pgmCommentOri,pgmSizeOri,pgmGreyscaleOri,pgmDataOri,htgOri = self.readPGMImage(str(originalFileName)+".pgm")
+        pgmVerAf,pgmCommentAf,pgmSizeAf,pgmGreyscaleAf,pgmDataAf,htgAf = self.readPGMImage(str(afterFileName)+".pgm")
+        rootMeanSquareValue = 0.0
+        for j in range(int(pgmSizeOri[1])):
+            for i in range(int(pgmSizeOri[0])):
+                rootMeanSquareValue = rootMeanSquareValue + ((pgmDataOri[i][j]-pgmDataAf[i][j])**2)
+
+        rootMeanSquareValue = rootMeanSquareValue/(float(pgmSizeOri[1])*float(pgmSizeOri[0]))
+        rootMeanSquareValue = np.sqrt(rootMeanSquareValue)
+        return rootMeanSquareValue
 
 if __name__ == "__main__":
 
-
+    """
     #2.2
     myLib = ImageLibFourier()
-    myLib.medianFilter("Lenna_noise")
-    myLib.medianFilter("Chess_noise")
+    #myLib.medianFilter("Lenna_noise")
+    #myLib.medianFilter("Chess_noise")
+    myLib.idealLowPassFilter("Lenna_noise",20)
+    myLib.idealLowPassFilter("Lenna_noise",30)
+    myLib.idealLowPassFilter("Lenna_noise",50)
 
+    myLib.butterWorthLowPassFilter("Lenna_noise",20,2)
+    myLib.butterWorthLowPassFilter("Lenna_noise",30,2)
+    myLib.butterWorthLowPassFilter("Lenna_noise",50,2)
 
-
+    myLib.GaussianLowPassFilter("Lenna_noise",20)
+    myLib.GaussianLowPassFilter("Lenna_noise",30)
+    myLib.GaussianLowPassFilter("Lenna_noise",50)
+    print myLib.rootMeanSquare("Lenna","Lenna_noise")
+    print myLib.rootMeanSquare("Lenna","Lenna_noiseConMedianFilter")
     """
+
+
     #2.1
     myLib = ImageLibFourier()
 
-    myLib.idealLowPassFilter("Cross",10)
+    #myLib.idealLowPassFilter("Cross",10)
     myLib.idealLowPassFilter("Cross",20)
     myLib.idealLowPassFilter("Cross",30)
     myLib.idealLowPassFilter("Cross",50)
-    myLib.idealLowPassFilter("Cross",100)
+    #myLib.idealLowPassFilter("Cross",100)
 
-    myLib.butterWorthLowPassFilter("Cross",10,2)
+    #myLib.butterWorthLowPassFilter("Cross",10,2)
     myLib.butterWorthLowPassFilter("Cross",20,2)
     myLib.butterWorthLowPassFilter("Cross",30,2)
     myLib.butterWorthLowPassFilter("Cross",50,2)
-    myLib.butterWorthLowPassFilter("Cross",100,2)
+    myLib.butterWorthLowPassFilter("Cross",20,20)
+    myLib.butterWorthLowPassFilter("Cross",20,5)
+    myLib.butterWorthLowPassFilter("Cross",20,100)
+    #myLib.butterWorthLowPassFilter("Cross",100,2)
 
-    myLib.GaussianLowPassFilter("Cross",10)
+    #myLib.GaussianLowPassFilter("Cross",10)
     myLib.GaussianLowPassFilter("Cross",20)
     myLib.GaussianLowPassFilter("Cross",30)
     myLib.GaussianLowPassFilter("Cross",50)
-    myLib.GaussianLowPassFilter("Cross",100)
-    """
+    #myLib.GaussianLowPassFilter("Cross",100)
+
 
     """
     #1.1
@@ -377,13 +403,14 @@ if __name__ == "__main__":
     myLib.inverseFourierPgmWithOutPhase("Lenna.pgm")
     """
 
-
+    """
     #1.7
     kernel = np.array([[1,2,1],[2,4,2],[1,2,1]],dtype=np.float)
     kernel = (1.0/16.0)*kernel
     myLib = ImageLibFourier()
     myLib.convolutionWithKernel("Chess","Blur",kernel,1)
     myLib.convolutionWithKernelFrequencyDomain("Chess","BlurInFourier",kernel)
+    """
 
 
 
