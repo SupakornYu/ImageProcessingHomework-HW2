@@ -2,19 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dca23789-1d49-4a6f-86fe-756f7e18046c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Cross.pgm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossAmplitude.pgm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossPadding.pgm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossPaddingAmplitude.pgm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossPaddingShiftAxis.pgm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossPaddingphase.pgm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossRotatePic.pgm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Crossphase.pgm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/amplitude.pgm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phase.pgm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testphase.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Chess.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ChessConBlur.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ChessConFreBlurInFourier.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ChessConIdentity.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossDownSamplePic.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossDownSamplePicAmplitude.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossDownSamplePicphase.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossPaddingPgmWithOutAmplitude.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossPaddingPgmWithOutPhase.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossPaddingShiftAxisAmplitude.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossPaddingShiftAxisphase.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossRotatePicAmplitude.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossRotatePicphase.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lenna.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LennaPgmWithOutAmplitude.pgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LennaPgmWithOutPhase.pgm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossPadding.pgm" afterPath="$PROJECT_DIR$/CrossPadding.pgm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img_main2.py" afterPath="$PROJECT_DIR$/img_main2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hw2_com.iws" />
@@ -27,7 +32,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/hw2_com$img_main2.coverage" NAME="img_main2 Coverage Results" MODIFIED="1427314652927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hw2_com$img_main2.coverage" NAME="img_main2 Coverage Results" MODIFIED="1427461598176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -44,8 +49,8 @@
       <file leaf-file-name="img_main2.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/img_main2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8542056" vertical-offset="3417" max-vertical-offset="4056">
-              <caret line="149" column="35" selection-start-line="149" selection-start-column="35" selection-end-line="149" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.74870914" vertical-offset="5337" max-vertical-offset="7748">
+              <caret line="222" column="5" selection-start-line="222" selection-start-column="5" selection-end-line="222" selection-end-column="5" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -53,57 +58,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CrossRotatePic.pgm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CrossRotatePic.pgm">
+      <file leaf-file-name="LennaPgmWithOutAmplitude.pgm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LennaPgmWithOutAmplitude.pgm">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CrossPaddingShiftAxis.pgm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CrossPaddingShiftAxis.pgm">
+      <file leaf-file-name="LennaPgmWithOutPhase.pgm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LennaPgmWithOutPhase.pgm">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CrossPaddingAmplitude.pgm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CrossPaddingAmplitude.pgm">
+      <file leaf-file-name="Lenna.pgm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Lenna.pgm">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CrossPaddingphase.pgm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CrossPaddingphase.pgm">
+      <file leaf-file-name="ChessConBlur.pgm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ChessConBlur.pgm">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phase.pgm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phase.pgm">
+      <file leaf-file-name="ChessConFreBlurInFourier.pgm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ChessConFreBlurInFourier.pgm">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="amplitude.pgm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/amplitude.pgm">
+      <file leaf-file-name="ChessConIdentity.pgm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ChessConIdentity.pgm">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CrossPadding.pgm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CrossPadding.pgm">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cross.pgm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Cross.pgm">
+      <file leaf-file-name="Chess.pgm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Chess.pgm">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
@@ -394,7 +392,11 @@
       <created>1426744585187</created>
       <updated>1426744585187</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="-shift pic in fourier is done&#10;-rotate pic is done">
+      <created>1427314759503</created>
+      <updated>1427314759503</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -421,22 +423,22 @@
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15444444" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37666667" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14278075" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18609625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35444444" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27222222" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -458,7 +460,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="-convert pgmdata to fourier is done&#10;-write phase image is done" />
-    <option name="LAST_COMMIT_MESSAGE" value="-convert pgmdata to fourier is done&#10;-write phase image is done" />
+    <MESSAGE value="-shift pic in fourier is done&#10;-rotate pic is done" />
+    <option name="LAST_COMMIT_MESSAGE" value="-shift pic in fourier is done&#10;-rotate pic is done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -584,22 +587,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossPaddingphase.pgm">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phase.pgm">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CrossPaddingShiftAxis.pgm">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CrossPaddingAmplitude.pgm">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -609,12 +597,27 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossPadding.pgm">
+    <entry file="file://$PROJECT_DIR$/CrossPaddingShiftAxis.pgm">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cross.pgm">
+    <entry file="file://$PROJECT_DIR$/CrossRotatePicphase.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossRotatePicAmplitude.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossPaddingShiftAxisAmplitude.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossPaddingShiftAxisphase.pgm">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -624,10 +627,100 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CrossAmplitude.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crossphase.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossDownSamplePic.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossPaddingAmplitude.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossDownSamplePicAmplitude.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossPaddingPgmWithOutPhase.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossPaddingPgmWithOutAmplitude.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossPaddingphase.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossPadding.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossDownSamplePicphase.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cross.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LennaPgmWithOutPhase.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lenna.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LennaPgmWithOutAmplitude.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Chess.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChessConIdentity.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChessConBlur.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChessConFreBlurInFourier.pgm">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/img_main2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8542056" vertical-offset="3417" max-vertical-offset="4056">
-          <caret line="149" column="35" selection-start-line="149" selection-start-column="35" selection-end-line="149" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.74870914" vertical-offset="5337" max-vertical-offset="7748">
+          <caret line="222" column="5" selection-start-line="222" selection-start-column="5" selection-end-line="222" selection-end-column="5" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
