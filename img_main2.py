@@ -173,9 +173,9 @@ class ImageLibFourier:
 
     def convolutionWithKernel(self,inputFileName,kernelName,kernel,extendPadding):
         pgmVer,pgmComment,pgmSize,pgmGreyscale,pgmData,htg = self.readPGMImage(str(inputFileName)+".pgm")
-        pgmData = np.lib.pad(pgmData, extendPadding, padwithzeros)
+        pgmData = np.lib.pad(pgmData, extendPadding, padwithzerooos)
         pgmDataCon = np.zeros((int(pgmSize[1]),int(pgmSize[0])),dtype=np.float)
-        pgmDataCon = np.lib.pad(pgmDataCon, extendPadding, padwithzeros)
+        pgmDataCon = np.lib.pad(pgmDataCon, extendPadding, padwithzerooos)
         pgmDataCon.fill(255)
         #print pgmDataCon.shape
         for i in range(1,int(pgmSize[1])+1):
@@ -217,12 +217,106 @@ class ImageLibFourier:
         kernelFourier = self.convertToFourier(kernel)
         pgmResult = kernelFourier*pgmDataFourier
         pgmResult = np.abs(np.fft.ifft2(pgmResult))
-        pgmResult = np.round(self.moveAxispgmDataBeforeFourier(pgmResult,pgmSize),0).astype(int)
+        pgmResult = np.abs(np.round(self.moveAxispgmDataBeforeFourier(pgmResult,pgmSize),0).astype(int))
+        print pgmResult
         self.buildPGMFile(str(inputFileName)+"ConFre"+str(kernelName),pgmSize[0],pgmSize[1],pgmGreyscale,pgmResult)
+        print kernel.shape
 
-    #def idealLowPassFilter(self,filename,):
+    def idealLowPassFilter(self,filename,cutoff):
+        pgmVer,pgmComment,pgmSize,pgmGreyscale,pgmData,htg = self.readPGMImage(str(filename)+".pgm")
+        pgmData = self.moveAxispgmDataBeforeFourier(pgmData,pgmSize)
+        pgmDataFourier = self.convertToFourier(pgmData)
+        hFilter = np.zeros((int(pgmSize[0]),int(pgmSize[1])),dtype=np.float)
+        hFilter.fill(0)
+        m = float(pgmSize[1])
+        n = float(pgmSize[0])
+        for j in range(int(pgmSize[1])):
+            for i in range(int(pgmSize[0])):
+                dUV = float(np.sqrt(((float(j)-(m/2.0))**2.0)+((float(i)-(n/2.0))**2.0)))
+                if dUV <= float(cutoff):
+                    hFilter[i][j] = 1.0
+                elif dUV > float(cutoff):
+                    hFilter[i][j] = 0.0
+        pgmResult = pgmDataFourier*hFilter
+        pgmResult = np.abs(np.fft.ifft2(pgmResult))
+        pgmResult = self.moveAxispgmDataBeforeFourier(pgmResult,pgmSize)
+        pgmResult = np.abs(np.round(pgmResult,0).astype(int))
+        self.buildPGMFile(str(filename)+"idealLowPassFilter"+str(cutoff),pgmSize[0],pgmSize[1],pgmGreyscale,pgmResult)
+
+    def butterWorthLowPassFilter(self,filename,cutoff,order):
+        pgmVer,pgmComment,pgmSize,pgmGreyscale,pgmData,htg = self.readPGMImage(str(filename)+".pgm")
+        pgmData = self.moveAxispgmDataBeforeFourier(pgmData,pgmSize)
+        pgmDataFourier = self.convertToFourier(pgmData)
+        hFilter = np.zeros((int(pgmSize[0]),int(pgmSize[1])),dtype=np.float)
+        hFilter.fill(0)
+        m = float(pgmSize[1])
+        n = float(pgmSize[0])
+        for j in range(int(pgmSize[1])):
+            for i in range(int(pgmSize[0])):
+                dUV = float(np.sqrt(((float(j)-(m/2.0))**2.0)+((float(i)-(n/2.0))**2.0)))
+                hFilter[i][j] = 1.0/(1.0+((dUV/float(cutoff))**(2.0*order)))
+        pgmResult = pgmDataFourier*hFilter
+        pgmResult = np.abs(np.fft.ifft2(pgmResult))
+        pgmResult = self.moveAxispgmDataBeforeFourier(pgmResult,pgmSize)
+        pgmResult = np.abs(np.round(pgmResult,0).astype(int))
+        self.buildPGMFile(str(filename)+"ButterWorthLowPassFilter"+str(cutoff),pgmSize[0],pgmSize[1],pgmGreyscale,pgmResult)
+
+    def GaussianLowPassFilter(self,filename,cutoff):
+        pgmVer,pgmComment,pgmSize,pgmGreyscale,pgmData,htg = self.readPGMImage(str(filename)+".pgm")
+        pgmData = self.moveAxispgmDataBeforeFourier(pgmData,pgmSize)
+        pgmDataFourier = self.convertToFourier(pgmData)
+        hFilter = np.zeros((int(pgmSize[0]),int(pgmSize[1])),dtype=np.float)
+        hFilter.fill(0)
+        m = float(pgmSize[1])
+        n = float(pgmSize[0])
+        for j in range(int(pgmSize[1])):
+            for i in range(int(pgmSize[0])):
+                dUV = float(np.sqrt(((float(j)-(m/2.0))**2.0)+((float(i)-(n/2.0))**2.0)))
+                hFilter[i][j] = np.exp(-1.0*((dUV**2.0)/(2.0*(cutoff**2.0))))
+        pgmResult = pgmDataFourier*hFilter
+        pgmResult = np.abs(np.fft.ifft2(pgmResult))
+        pgmResult = self.moveAxispgmDataBeforeFourier(pgmResult,pgmSize)
+        pgmResult = np.abs(np.round(pgmResult,0).astype(int))
+        self.buildPGMFile(str(filename)+"GaussianLowPassFilter"+str(cutoff),pgmSize[0],pgmSize[1],pgmGreyscale,pgmResult)
+
+    def medianFilter(self,filename):
+        kernel = np.array([[1,1,1],[1,1,1],[1,1,1]],dtype=np.float)
+        kernel = (1.0/9.0)*kernel #median filter kernel
+        self.convolutionWithKernel(filename,"MedianFilter",kernel,1)
+
 
 if __name__ == "__main__":
+
+
+    #2.2
+    myLib = ImageLibFourier()
+    myLib.medianFilter("Lenna_noise")
+    myLib.medianFilter("Chess_noise")
+
+
+
+    """
+    #2.1
+    myLib = ImageLibFourier()
+
+    myLib.idealLowPassFilter("Cross",10)
+    myLib.idealLowPassFilter("Cross",20)
+    myLib.idealLowPassFilter("Cross",30)
+    myLib.idealLowPassFilter("Cross",50)
+    myLib.idealLowPassFilter("Cross",100)
+
+    myLib.butterWorthLowPassFilter("Cross",10,2)
+    myLib.butterWorthLowPassFilter("Cross",20,2)
+    myLib.butterWorthLowPassFilter("Cross",30,2)
+    myLib.butterWorthLowPassFilter("Cross",50,2)
+    myLib.butterWorthLowPassFilter("Cross",100,2)
+
+    myLib.GaussianLowPassFilter("Cross",10)
+    myLib.GaussianLowPassFilter("Cross",20)
+    myLib.GaussianLowPassFilter("Cross",30)
+    myLib.GaussianLowPassFilter("Cross",50)
+    myLib.GaussianLowPassFilter("Cross",100)
+    """
 
     """
     #1.1
@@ -283,11 +377,13 @@ if __name__ == "__main__":
     myLib.inverseFourierPgmWithOutPhase("Lenna.pgm")
     """
 
-    """
+
     #1.7
     kernel = np.array([[1,2,1],[2,4,2],[1,2,1]],dtype=np.float)
     kernel = (1.0/16.0)*kernel
     myLib = ImageLibFourier()
     myLib.convolutionWithKernel("Chess","Blur",kernel,1)
     myLib.convolutionWithKernelFrequencyDomain("Chess","BlurInFourier",kernel)
-    """
+
+
+
