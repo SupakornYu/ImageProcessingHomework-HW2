@@ -151,7 +151,7 @@ class ImageLibFourier:
         pgmDataFourier = np.abs(np.fft.ifft2(pgmDataFourier))
         pgmDataFourier = np.round(pgmDataFourier*(float(pgmGreyscale[0])/(np.amax(pgmDataFourier)-np.amin(pgmDataFourier))),0).astype(int)
         #print np.min(pgmDataFourier)
-        pgmDataFourier = self.moveAxispgmDataBeforeFourier(pgmDataFourier,pgmSize)
+        pgmDataFourier = np.abs(self.moveAxispgmDataBeforeFourier(pgmDataFourier,pgmSize))
         filename = filename.replace(".pgm", "");
         self.buildPGMFile(filename+"PgmWithOutAmplitude",pgmSize[0],pgmSize[1],pgmGreyscale,pgmDataFourier)
 
@@ -300,9 +300,12 @@ if __name__ == "__main__":
 
     """
     #2.2
+
     myLib = ImageLibFourier()
-    #myLib.medianFilter("Lenna_noise")
-    #myLib.medianFilter("Chess_noise")
+
+    myLib.medianFilter("Lenna_noise")
+    print myLib.rootMeanSquare("Lenna","Lenna_noiseConMedianFilter")
+
     myLib.idealLowPassFilter("Lenna_noise",20)
     myLib.idealLowPassFilter("Lenna_noise",30)
     myLib.idealLowPassFilter("Lenna_noise",50)
@@ -314,35 +317,73 @@ if __name__ == "__main__":
     myLib.GaussianLowPassFilter("Lenna_noise",20)
     myLib.GaussianLowPassFilter("Lenna_noise",30)
     myLib.GaussianLowPassFilter("Lenna_noise",50)
+
     print myLib.rootMeanSquare("Lenna","Lenna_noise")
-    print myLib.rootMeanSquare("Lenna","Lenna_noiseConMedianFilter")
+    print myLib.rootMeanSquare("Lenna","Lenna_noiseidealLowPassFilter20")
+    print myLib.rootMeanSquare("Lenna","Lenna_noiseidealLowPassFilter30")
+    print myLib.rootMeanSquare("Lenna","Lenna_noiseidealLowPassFilter50")
+
+    print myLib.rootMeanSquare("Lenna","Lenna_noise")
+    print myLib.rootMeanSquare("Lenna","Lenna_noiseButterWorthLowPassFilter20Order2")
+    print myLib.rootMeanSquare("Lenna","Lenna_noiseButterWorthLowPassFilter30Order2")
+    print myLib.rootMeanSquare("Lenna","Lenna_noiseButterWorthLowPassFilter50Order2")
+
+    print myLib.rootMeanSquare("Lenna","Lenna_noise")
+    print myLib.rootMeanSquare("Lenna","Lenna_noiseGaussianLowPassFilter20")
+    print myLib.rootMeanSquare("Lenna","Lenna_noiseGaussianLowPassFilter30")
+    print myLib.rootMeanSquare("Lenna","Lenna_noiseGaussianLowPassFilter50")
+
+
+
+
+    myLib.idealLowPassFilter("Chess_noise",20)
+    myLib.idealLowPassFilter("Chess_noise",30)
+    myLib.idealLowPassFilter("Chess_noise",50)
+
+    myLib.butterWorthLowPassFilter("Chess_noise",20,2)
+    myLib.butterWorthLowPassFilter("Chess_noise",30,2)
+    myLib.butterWorthLowPassFilter("Chess_noise",50,2)
+
+    myLib.GaussianLowPassFilter("Chess_noise",20)
+    myLib.GaussianLowPassFilter("Chess_noise",30)
+    myLib.GaussianLowPassFilter("Chess_noise",50)
+
+    print myLib.rootMeanSquare("Chess","Chess_noise")
+    print myLib.rootMeanSquare("Chess","Chess_noiseidealLowPassFilter20")
+    print myLib.rootMeanSquare("Chess","Chess_noiseidealLowPassFilter30")
+    print myLib.rootMeanSquare("Chess","Chess_noiseidealLowPassFilter50")
+
+    print myLib.rootMeanSquare("Chess","Chess_noise")
+    print myLib.rootMeanSquare("Chess","Chess_noiseButterWorthLowPassFilter20Order2")
+    print myLib.rootMeanSquare("Chess","Chess_noiseButterWorthLowPassFilter30Order2")
+    print myLib.rootMeanSquare("Chess","Chess_noiseButterWorthLowPassFilter50Order2")
+
+    print myLib.rootMeanSquare("Chess","Chess_noise")
+    print myLib.rootMeanSquare("Chess","Chess_noiseGaussianLowPassFilter20")
+    print myLib.rootMeanSquare("Chess","Chess_noiseGaussianLowPassFilter30")
+    print myLib.rootMeanSquare("Chess","Chess_noiseGaussianLowPassFilter50")
+
+
+    myLib.medianFilter("Chess_noise")
+    print myLib.rootMeanSquare("Chess","Chess_noiseConMedianFilter")
     """
 
-
+    """
     #2.1
     myLib = ImageLibFourier()
-
-    #myLib.idealLowPassFilter("Cross",10)
     myLib.idealLowPassFilter("Cross",20)
     myLib.idealLowPassFilter("Cross",30)
     myLib.idealLowPassFilter("Cross",50)
-    #myLib.idealLowPassFilter("Cross",100)
-
-    #myLib.butterWorthLowPassFilter("Cross",10,2)
     myLib.butterWorthLowPassFilter("Cross",20,2)
     myLib.butterWorthLowPassFilter("Cross",30,2)
     myLib.butterWorthLowPassFilter("Cross",50,2)
     myLib.butterWorthLowPassFilter("Cross",20,20)
     myLib.butterWorthLowPassFilter("Cross",20,5)
     myLib.butterWorthLowPassFilter("Cross",20,100)
-    #myLib.butterWorthLowPassFilter("Cross",100,2)
-
-    #myLib.GaussianLowPassFilter("Cross",10)
     myLib.GaussianLowPassFilter("Cross",20)
     myLib.GaussianLowPassFilter("Cross",30)
     myLib.GaussianLowPassFilter("Cross",50)
-    #myLib.GaussianLowPassFilter("Cross",100)
-
+    """
 
     """
     #1.1
